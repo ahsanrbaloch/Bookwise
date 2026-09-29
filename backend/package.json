@@ -1,0 +1,41 @@
+{
+  "name": "bookwise-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "check": "tsc --noEmit",
+    "smoke": "node test/smoke.mjs",
+    "agent-smoke": "npm run build && node test/agent.mjs",
+    "actions-smoke": "npm run build && node test/actions.mjs",
+    "retrieval-smoke": "npm run build && node test/retrieval.mjs",
+    "memory-smoke": "npm run build && node test/memory.mjs",
+    "book-state-smoke": "npm run build && node test/book-state-authority.mjs",
+    "memory-live": "npm run build && node test/live-memory.mjs",
+    "context-smoke": "npm run build && node test/context.mjs",
+    "workflow-smoke": "npm run build && node test/workflow.mjs",
+    "weekly-review-smoke": "npm run build && node test/weekly-review.mjs",
+    "delete-reading-smoke": "npm run build && node test/delete-reading.mjs",
+    "delete-conversation-smoke": "npm run build && node test/delete-conversation.mjs",
+    "evaluate": "npm run build && node evaluation/run.mjs"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.13",
+    "@langchain/langgraph": "^1.4.18",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.0.0",
+    "pg": "^8.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

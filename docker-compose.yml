@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: bookwise
+      POSTGRES_PASSWORD: bookwise
+      POSTGRES_DB: bookwise
+    ports:
+      - "5434:5432"
+    volumes:
+      - bookwise_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+volumes:
+  bookwise_data:
